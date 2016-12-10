@@ -14,7 +14,12 @@ class JavaFileSystem implements FileSystem {
     public static final int SEEK_END    = 2;
 
     JavaFileSystem() {
-        //throw new RuntimeException("not implemented");
+        disk= new Disk(); //cria o disco
+        sb=new SuperBlock();//cache o superblok;
+        try{
+            disk.read(0,sb);
+        }catch(Exception e){}
+        ft=new FileTable();
     }
 
     // Initialize the the disk to a state representing an empty file-system.
