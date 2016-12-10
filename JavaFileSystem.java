@@ -12,6 +12,10 @@ class JavaFileSystem implements FileSystem {
     public static final int SEEK_SET    = 0;
     public static final int SEEK_CUR    = 1;
     public static final int SEEK_END    = 2;
+    
+    Disk disk;
+    FileTable ft;
+    SuperBlock sb;
 
     JavaFileSystem() {
         disk= new Disk(); //cria o disco
